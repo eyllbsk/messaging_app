@@ -50,7 +50,7 @@ class _MessagingPageState extends State<MessagingPage> {
     } catch (e) {
       
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Mesaj gönderilemedi: $e')),
+        SnackBar(content: Text('Failed to send message: $e')),
       );
     }
   }
@@ -77,13 +77,13 @@ class _MessagingPageState extends State<MessagingPage> {
 
                 if (snapshot.hasError) {
                   return Center(
-                    child: Text('Hata: ${snapshot.error}'),
+                    child: Text('Error: ${snapshot.error}'),
                   );
                 }
 
                 if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                   return const Center(
-                    child: Text('Henüz mesaj yok. Bir şeyler yazmayı dene.'),
+                    child: Text('No messages yet. Try sending something.'),
                   );
                 }
 
