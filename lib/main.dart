@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(); // Android için yeterli
+  await Firebase.initializeApp(); 
   runApp(const MyApp());
 }
 
@@ -35,7 +35,7 @@ class MessagingPage extends StatefulWidget {
 class _MessagingPageState extends State<MessagingPage> {
   final TextEditingController _controller = TextEditingController();
 
-  /// Mesajı Firestore'a ekleyen fonksiyon
+  
   Future<void> _sendMessage() async {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
@@ -48,7 +48,7 @@ class _MessagingPageState extends State<MessagingPage> {
 
       _controller.clear();
     } catch (e) {
-      // Hata olursa ekranda göster
+      
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Mesaj gönderilemedi: $e')),
       );
@@ -63,7 +63,7 @@ class _MessagingPageState extends State<MessagingPage> {
       ),
       body: Column(
         children: [
-          // 🔹 Firestore'dan GERÇEK ZAMANLI MESAJ LİSTESİ
+          
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance
@@ -110,7 +110,7 @@ class _MessagingPageState extends State<MessagingPage> {
             ),
           ),
 
-          // 🔹 Mesaj giriş alanı + Send butonu
+         
           Padding(
             padding: const EdgeInsets.all(12),
             child: Row(
