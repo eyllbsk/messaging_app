@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // Firebase Google Services plugin must be added here:
+    
     id("com.google.gms.google-services")
-    // Flutter plugin:
+    
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -41,9 +41,9 @@ flutter {
 }
 
 dependencies {
-    // Firebase BoM (Bill of Materials)
+    
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
 
-    // Firestore for Android
+    
     implementation("com.google.firebase:firebase-firestore-ktx")
 }
